@@ -1,12 +1,13 @@
 const express = require('express');
 const logger = require('morgan');
-const asyncHandler = require('express-async-handler');
 const connectDatabase = require('./config/database');
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const bodyParser = require('body-parser');
 const errorHandler = require('./middleware/errorHandler');
 const dotenv = require('dotenv').config();
+
+const indexRouter = require('./routes/indexRoutes');
+const usersRouter = require('./routes/usersRoutes');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ connectDatabase();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use(authRouter);
 
 // error handler
 app.use(errorHandler);
