@@ -1,3 +1,33 @@
 <%- include('./components/header.ejs') %>
-<h1>login page</h1>
+<div class="hero min-h-screen">
+  <div class="bg-base-200 p-10 max-w-xl rounded-3xl shadow-lg">
+    <div class="text-center">
+      <h1 class="text-5xl font-bold">Signup an Account</h1>
+      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <form action="/signup" method="post" class="w-[80%] mx-auto">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <label class="input-group">
+            <input type="email" placeholder="example@example.com" class="input input-bordered w-full" required />
+          </label>
+        </div>
+        <div class="form-control mt-3">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <label class="input-group">
+            <input type="password" placeholder="********" class="input input-bordered w-full" required />
+          </label>
+          <label class="label">
+            <span class="label-text">Min length : 6 characters</span>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-8 w-full">Register</button>
+      </form>
+      <p>Already have an account? <a href="/login" class="link-secondary">Login</a></p>
+    </div>
+  </div>
+</div>
 <%- include('./components/footer.ejs') %>

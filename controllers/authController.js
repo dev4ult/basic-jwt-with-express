@@ -10,7 +10,12 @@ const login_get = asyncHandler(async (req, res) => {
 });
 
 const signup_post = asyncHandler(async (req, res) => {
-  res.render('signup');
+  const { email, password } = req.body;
+  const user = await userModel.create({
+    email,
+    password,
+  });
+  res.status(201).json(user);
 });
 
 const login_post = asyncHandler(async (req, res) => {
