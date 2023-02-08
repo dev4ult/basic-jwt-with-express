@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const connectDatabase = require('./config/database');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/errorHandler');
 const dotenv = require('dotenv').config();
 
@@ -18,12 +19,26 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(express.static('public'));
 
 connectDatabase();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.get('/setcookie', (req, res) => {
+  res.cookie('newUser', false);
+
+  res.send('you got the cookie');
+});
+
+app.get('/getcookie', (req, res) => {
+  const cookies = req.cookies;
+
+  res.json(cookies);
+});
+
 app.use(authRouter);
 
 // error handler
