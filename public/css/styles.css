@@ -2627,12 +2627,21 @@ html {
   margin-right: auto;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .min-h-screen {
@@ -2663,6 +2672,14 @@ html {
   flex: none;
 }
 
+.items-center {
+  align-items: center;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
 }
@@ -2681,25 +2698,12 @@ html {
   background-color: hsl(var(--n) / var(--tw-bg-opacity));
 }
 
-.bg-base-100 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
-}
-
-.fill-current {
-  fill: currentColor;
-}
-
 .p-10 {
   padding: 2.5rem;
 }
 
 .p-5 {
   padding: 1.25rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
 }
 
 .py-6 {
@@ -2726,8 +2730,22 @@ html {
   line-height: 1;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .normal-case {

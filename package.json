@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server",
-    "tailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch"
+    "tailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch",
+    "tailwind-minify": "npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --minify"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

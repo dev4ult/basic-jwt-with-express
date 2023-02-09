@@ -37,12 +37,17 @@ const login_post = asyncHandler(async (req, res) => {
   res.status(200).json({ user: user._id });
 });
 
+const logout = (req, res) => {
+  res.cookie('jwt', '', { maxAge: 1 });
+  res.redirect('/');
+};
+
 const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (id) => {
-  return jwt.sign({ id }, 'secret text', {
+  return jwt.sign({ id }, process.env.TEMP_TEXT_JWT, {
     expiresIn: maxAge,
   });
 };
 
-module.exports = { signup_get, login_get, signup_post, login_post };
+module.exports = { signup_get, login_get, signup_post, login_post, logout };

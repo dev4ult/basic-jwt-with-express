@@ -6,9 +6,8 @@ const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/errorHandler');
 const dotenv = require('dotenv').config();
 
-const indexRouter = require('./routes/indexRoutes');
-const usersRouter = require('./routes/usersRoutes');
-const authRouter = require('./routes/authRoutes');
+const indexRoutes = require('./routes/indexRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,17 +16,16 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
 connectDatabase();
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', indexRoutes);
 
-app.use(authRouter);
+app.use(authRoutes);
 
 // error handler
 app.use(errorHandler);

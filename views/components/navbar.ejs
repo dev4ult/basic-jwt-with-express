@@ -1,11 +1,15 @@
 <div class="navbar bg-neutral text-neutral-content rounded-xl">
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl">Home</a>
+    <a href="/" class="btn btn-ghost normal-case text-xl">Home</a>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
+    <ul class="menu menu-horizontal px-1 items-center gap-5">
+      <% if(user) { %>
+      <li><%= user.email %></li>
+      <li><a href="/logout">Logout</a></li>
+      <% } else { %>
       <li><a href="/login">Login</a></li>
-      <li><a href="/signup">Signup</a></li>
+      <% } %>
     </ul>
   </div>
 </div>
