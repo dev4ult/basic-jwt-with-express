@@ -4,13 +4,13 @@
     <div class="text-center">
       <h1 class="text-5xl font-bold">Signup an Account</h1>
       <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <form action="/signup" method="post" class="w-[80%] mx-auto">
+      <form class="w-[80%] mx-auto">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>
           </label>
           <label class="input-group">
-            <input type="email" placeholder="example@example.com" class="input input-bordered w-full" required />
+            <input type="email" placeholder="example@example.com" name="email" class="input input-bordered w-full" required />
           </label>
         </div>
         <div class="form-control mt-3">
@@ -18,7 +18,7 @@
             <span class="label-text">Password</span>
           </label>
           <label class="input-group">
-            <input type="password" placeholder="********" class="input input-bordered w-full" required />
+            <input type="password" placeholder="********" name="password" class="input input-bordered w-full" required />
           </label>
           <label class="label">
             <span class="label-text">Min length : 6 characters</span>
@@ -30,4 +30,6 @@
     </div>
   </div>
 </div>
+
+<script src="/js/handleSignup.js"></script>
 <%- include('./components/footer.ejs') %>

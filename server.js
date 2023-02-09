@@ -17,8 +17,8 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
@@ -26,18 +26,6 @@ connectDatabase();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-app.get('/setcookie', (req, res) => {
-  res.cookie('newUser', false);
-
-  res.send('you got the cookie');
-});
-
-app.get('/getcookie', (req, res) => {
-  const cookies = req.cookies;
-
-  res.json(cookies);
-});
 
 app.use(authRouter);
 
